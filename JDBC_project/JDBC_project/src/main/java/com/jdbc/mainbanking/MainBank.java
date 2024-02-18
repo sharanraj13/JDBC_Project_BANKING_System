@@ -8,11 +8,14 @@ import com.jdbc.bankingDaoImpl.BankingDaoImpl;
 
 
 
+
 public class MainBank {
 	
 
     public static void main(String[] args) {
-        System.out.println("Welcome to Praveen International Royal Bank");
+    	System.out.println("--------------------------------------------------------------------------------------");
+        System.out.println("Welcome to  Royal Bank");
+
 
         BankingDao bank = new BankingDaoImpl();
        
@@ -22,9 +25,12 @@ public class MainBank {
         Scanner scanner = new Scanner(System.in);
         
         while(true){
-        
+        System.out.println("--------------------------------------------------------------------------------------");
         System.out.println("Create new account:- 1" + "     " + "Account already exist:- 2" + "     " + " Admin :- 3");
+        System.out.println("--------------------------------------------------------------------------------------");
+
         System.out.print("Enter your choice: ");
+       
         int choice = scanner.nextInt();
         
         if(choice==3) {
@@ -34,7 +40,8 @@ public class MainBank {
         switch (choice) {
             case 1:
             	
-            	
+            	System.out.println();
+
             	System.out.print("Enter the account number: ");
                 long account_number =scanner.nextLong(); ;
                 System.out.print("Enter the name of the account holder: ");
@@ -67,12 +74,17 @@ public class MainBank {
 
                 break;
             case 2:
-
+            	System.out.println();
+            	System.out.println("--------------------------------------------------------------------------------------");
                 System.out.printf("%-20s %-20s %-20s  %-20s %-20s%n","Deposit:- 1","Withdraw:- 2"," Check Balance :- 3","Transfer  :- 4","AccountHolder Details:- 5");
+                System.out.println("--------------------------------------------------------------------------------------");
+                System.out.println();
                 System.out.print("Enter your choice:");
                 choice = scanner.nextInt();
                 switch (choice) {
                     case 1:
+                    	System.out.println();
+                    	System.out.println();
                         System.out.print("Enter the Account Number: ");
                         account_number = scanner.nextLong();
                         System.out.print("Enter the Account Holder Name: ");
@@ -85,6 +97,7 @@ public class MainBank {
 
                         break;
                     case 2:
+                    	System.out.println();
                         System.out.print("Enter the Account Number: ");
                         account_number = scanner.nextLong();
                         System.out.print("Enter the Account Holder Name: ");
@@ -96,6 +109,7 @@ public class MainBank {
 
                         break;
                     case 3:
+                    	System.out.println();
                         System.out.print("Enter the Account Number: ");
                         account_number = scanner.nextLong();
 
@@ -103,6 +117,7 @@ public class MainBank {
 
                         break;
                     case 4:
+                    	System.out.println();
                         System.out.print("Enter the Account Number who transferring : ");
                         account_number = scanner.nextLong();
                         System.out.print("Enter the Account Number where to transfer: ");
@@ -113,6 +128,7 @@ public class MainBank {
                         bank.transfer(account_number, transferAccount_number, amount);
                         break;
                     case 5:
+                    	System.out.println();
                     	 System.out.print("Enter the Account Number : ");
                          account_number = scanner.nextLong();
                          bank.accountHolderDetails(account_number);
@@ -123,18 +139,25 @@ public class MainBank {
                 
          
             case 3:
+            	
+
             	  final String correctPassword = "9848";
                   System.out.print("Enter admin password: ");
                   String enteredPassword = scanner.next(); 
 
                   if (enteredPassword.equals(correctPassword)) {
-          
-	                System.out.println("Update user data:- 1" + "   " + "Display all customer accounts:- 2" + "   " + " Delete any Account :- 3"+ "  "+"Check Transaction history:- 4");
-	                System.out.print("Enter your choice:");
-	                choice = scanner.nextInt();
+                	 System.out.println("--------------------------------------------------------------------------------------");
+                	 System.out.println("1.Update user data");
+                	 System.out.println("2.Display all customer accounts");
+                	 System.out.println("3.Delete any Account");
+                	 System.out.println("4.Check Transaction history");
+                	 System.out.println("--------------------------------------------------------------------------------------");
+                	 System.out.print("Enter your choice:");
+                	 choice = scanner.nextInt();
 	
 	                switch (choice) {
 	                    case 1:
+	                    	System.out.println();
 	                        System.out.print("Enter column name in the table: accountHolder_name, DateOfBirth, adhaar_no, panCard, address, email, phoneNumber");
 	                        System.out.print("Enter your choice:");
 	                        String column = scanner.next();
@@ -147,15 +170,18 @@ public class MainBank {
 	
 	                        break;
 	                    case 2:
+	                    	System.out.println();
 	                        bank.display();
 	                        System.out.println();
 	                        break;
 	                    case 3:
+	                    	System.out.println();
 	                        System.out.print("Enter Account Number you want to Delete: ");
 	                        account_number = scanner.nextLong();
 	                        bank.deleteAccount(null, account_number);
 	                        break;
 	                    case 4:
+	                    	System.out.println();
 	                    	System.out.print("Enter Account Holder name you want see Transations: ");
 	                        accountHolder_name = scanner.next();
 	                        bank.displayTransaction( accountHolder_name);
@@ -169,7 +195,7 @@ public class MainBank {
            	}
        
         }
-        
     }
 }
+
 
